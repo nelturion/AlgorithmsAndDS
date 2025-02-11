@@ -6,12 +6,10 @@ package com.asd.andreyuk.lab0;
 public class Task3 {
     private static final String taskName = "lab0/task3";
     /**
-     * This is a main method for this solution. It reads a number from a file and puts the last digit of
+     * Reads a number from a file and puts the last digit of
      * the Fibonacci sequence number (it is very large, therefore it does not need to calculate the entire number)
-     * Also, it creates an instance of Runtime class that will give us information
-     * about time and memory that this solution took.
      *
-     * @param args
+     * @param args not used in this solution.
      */
     public static void main(String[] args) {
         Utils utils = new Utils();

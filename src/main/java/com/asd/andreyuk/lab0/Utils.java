@@ -1,6 +1,9 @@
 package com.asd.andreyuk.lab0;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -17,6 +20,7 @@ public class Utils {
     /**
      * This is an implementation of function that finds a number from Fibonacci sequence
      * at a specified index
+     *
      * @param n index of number
      * @return number
      */
@@ -34,9 +38,15 @@ public class Utils {
         return curr;
     }
 
-    public int readIntFromFile(String filename) {
+    /**
+     * Read one integer from {@code taskname} input file
+     *
+     * @param taskname name of a task in format {@code "labN/taskN"}
+     * @return integer value read from file.
+     */
+    public int readIntFromFile(String taskname) {
         ClassLoader classLoader = getClass().getClassLoader();
-        InputStream inputStream = classLoader.getResourceAsStream("txt/" + filename + "/input.txt");
+        InputStream inputStream = classLoader.getResourceAsStream("txt/" + taskname + "/input.txt");
         if (inputStream != null) {
             Scanner scanner = new Scanner(inputStream);
             return scanner.nextInt();
@@ -46,9 +56,15 @@ public class Utils {
         }
     }
 
-    public int[] readIntArrayFromFile(String filename) {
+    /**
+     * Read array of integers from {@code taskname} input file
+     *
+     * @param taskname name of a task in format {@code "labN/taskN"}
+     * @return integer value read from file.
+     */
+    public int[] readIntArrayFromFile(String taskname) {
         ClassLoader classLoader = getClass().getClassLoader();
-        InputStream inputStream = classLoader.getResourceAsStream("txt/" + filename + "/input.txt");
+        InputStream inputStream = classLoader.getResourceAsStream("txt/" + taskname + "/input.txt");
 
         if (inputStream != null) {
             Scanner scanner = new Scanner(inputStream);
@@ -70,8 +86,14 @@ public class Utils {
         }
     }
 
-    public void writeIntToFile(String taskName, int value) {
-        String dirPath = "classes/txt/" + taskName;
+    /**
+     * Write one integer {@code value} to the output file
+     *
+     * @param taskname name of a task in format {@code "labN/taskN"}
+     * @param value value to be written in file
+     */
+    public void writeIntToFile(String taskname, int value) {
+        String dirPath = "classes/txt/" + taskname;
         File directory = new File(dirPath);
         if (!directory.exists()) {
             if (directory.mkdirs()) {
@@ -92,7 +114,13 @@ public class Utils {
         }
     }
 
-    public void writeArrayToFile(String taskName, int[] arrayOfInt) throws IOException {
+    /**
+     * Write multiple integers as an array in output file spicified by {@code taskname}
+     *
+     * @param taskName name of a task in format {@code "labN/taskN"}
+     * @param arrayOfInt array to be written to a file
+     */
+    public void writeArrayToFile(String taskName, int[] arrayOfInt) {
         String dirPath = "classes/txt/" + taskName;
         File directory = new File(dirPath);
         if (!directory.exists()) {
@@ -120,11 +148,17 @@ public class Utils {
     private long startTime;
     private long startMemory;
 
+    /**
+     * Performance measurement function. Starts counting memory and time used by a program
+     */
     public void startMeasuring() {
         startTime = System.nanoTime();
         startMemory = getUsedMemory();
     }
 
+    /**
+     * Performance measurement function. Measures time and memory that program took up
+     */
     public void stopMeasuring() {
         long endTime = System.nanoTime();
         long endMemory = getUsedMemory();
@@ -136,6 +170,10 @@ public class Utils {
         System.out.println("Memory used: " + memoryUsed / 1024 + " kilobytes");
     }
 
+    /**
+     * Uses Runtime instance to measure memory heap
+     * @return memory heap size acquired by JVM
+     */
     private long getUsedMemory() {
         Runtime runtime = Runtime.getRuntime();
         return runtime.totalMemory() - runtime.freeMemory();

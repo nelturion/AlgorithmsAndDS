@@ -9,6 +9,10 @@ import java.util.Scanner;
  */
 public class Task1 {
     private static final String taskName = "lab0/task1";
+
+    /**
+     * Read inputs from terminal -> split the input line -> print sum.
+     */
     public static void subtask1() {
         Scanner scanner = new Scanner(System.in);
         int a, b;
@@ -21,6 +25,9 @@ public class Task1 {
         System.out.println(a + b);
     }
 
+    /**
+     * Read inputs from terminal -> split the input line -> print sum.
+     */
     public static void subtask2() {
         Scanner scanner = new Scanner(System.in);
         int a, b;
@@ -33,6 +40,9 @@ public class Task1 {
         System.out.println(a + b * b);
     }
 
+    /**
+     * Read input (as integer array) from file using Utils method -> write sum in output.txt file.
+     */
     public static void subtask3() {
         Utils utils = new Utils();
         int[] values = utils.readIntArrayFromFile(taskName);
@@ -44,6 +54,9 @@ public class Task1 {
         utils.writeIntToFile(taskName, res);
     }
 
+    /**
+     * Read input (as integer array) from file using Utils method -> write sum in output.txt file.
+     */
     public static void subtask4() {
         Utils utils = new Utils();
         int[] values = utils.readIntArrayFromFile(taskName);
@@ -55,6 +68,10 @@ public class Task1 {
         utils.writeIntToFile(taskName, res);
     }
 
+    /**
+     * Run to start all subtasks
+     * @param args not used in this method
+     */
     public static void main(String[] args) {
         // subtask1();
         // subtask2();
