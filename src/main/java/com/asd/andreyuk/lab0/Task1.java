@@ -17,7 +17,7 @@ public class Task1 {
         Scanner scanner = new Scanner(System.in);
         int a, b;
 
-        System.out.println("Enter a string containing two integers: ");
+        System.out.println("Enter two integers (in one line): ");
         String s = scanner.nextLine();
         a = Integer.parseInt(s.split(" ")[0]);
         b = Integer.parseInt(s.split(" ")[1]);
@@ -32,7 +32,7 @@ public class Task1 {
         Scanner scanner = new Scanner(System.in);
         int a, b;
 
-        System.out.println("Enter a string containing two integers: ");
+        System.out.println("Enter two integers (in one line): ");
         String s = scanner.nextLine();
         a = Integer.parseInt(s.split(" ")[0]);
         b = Integer.parseInt(s.split(" ")[1]);

@@ -136,6 +136,9 @@ public class Utils {
             StringBuilder stringBuilder = new StringBuilder();
             for (int i : arrayOfInt) {
                 stringBuilder.append(i);
+                if (i < arrayOfInt.length - 1) {
+                    stringBuilder.append(", ");
+                }
             }
 
             writer.write(stringBuilder.toString());
@@ -167,7 +170,7 @@ public class Utils {
         long memoryUsed = endMemory - startMemory;
 
         System.out.println("Time taken: " + duration / Math.pow(10, 9) + " seconds");
-        System.out.println("Memory used: " + memoryUsed / 1024 + " kilobytes");
+        System.out.println("Memory used: " + memoryUsed + " bytes");
     }
 
     /**
