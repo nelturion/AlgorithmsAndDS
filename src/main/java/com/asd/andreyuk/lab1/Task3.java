@@ -1,5 +1,7 @@
 package com.asd.andreyuk.lab1;
 
+import com.asd.andreyuk.Utils;
+
 public class Task3 {
     public static void main(String[] args) {
         Utils utils = new Utils();
@@ -15,6 +17,7 @@ public class Task3 {
 
     /**
      * Sorts an array in non-ascending order. Uses swap method.
+     *
      * @param array to be sorted
      */
     public static void reverseInsertionSort(int[] array) {

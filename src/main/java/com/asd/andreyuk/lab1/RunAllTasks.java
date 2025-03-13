@@ -1,5 +1,7 @@
 package com.asd.andreyuk.lab1;
 
+import com.asd.andreyuk.Utils;
+
 public class RunAllTasks {
     public static void main(String[] args) {
         Utils utils = new Utils();

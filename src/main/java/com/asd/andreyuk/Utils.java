@@ -1,4 +1,4 @@
-package com.asd.andreyuk.lab1;
+package com.asd.andreyuk;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -11,6 +11,9 @@ import java.util.Scanner;
  * This is a class that contains all frequently used methods
  */
 public class Utils {
+    private long startTime;
+    private long startMemory;
+
     /**
      * Class constructor
      */
@@ -121,9 +124,6 @@ public class Utils {
             System.out.println("An error occurred while writing to the file: " + e.getMessage());
         }
     }
-
-    private long startTime;
-    private long startMemory;
 
     /**
      * Performance measurement function. Starts counting memory and time used by a program

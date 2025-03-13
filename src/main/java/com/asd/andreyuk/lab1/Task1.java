@@ -1,5 +1,7 @@
 package com.asd.andreyuk.lab1;
 
+import com.asd.andreyuk.Utils;
+
 public class Task1 {
     public static void main(String[] args) {
         Utils utils = new Utils();
@@ -17,6 +19,7 @@ public class Task1 {
     /**
      * Сортировка вставками. Сравниваем элементы поочередно, сдвигая следующий элемент на позицию влево, пока он
      * больше нынешнего.
+     *
      * @param arr массив, который надо отсортировать
      * @return отсортированный массив
      */

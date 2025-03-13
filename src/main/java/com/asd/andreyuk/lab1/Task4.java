@@ -1,5 +1,7 @@
 package com.asd.andreyuk.lab1;
 
+import com.asd.andreyuk.Utils;
+
 import java.util.ArrayList;
 
 public class Task4 {
@@ -28,8 +30,9 @@ public class Task4 {
 
     /**
      * Линейный поиск по элементам массива
+     *
      * @param array массив в котором ищем
-     * @param n элемент, который ищем
+     * @param n     элемент, который ищем
      * @return массив из индексов элементов, которые соответствуют условиям поиска. Если ничего не найдено функция
      * возвращает -1
      */

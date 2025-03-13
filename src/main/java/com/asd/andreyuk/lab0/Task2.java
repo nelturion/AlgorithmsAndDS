@@ -1,5 +1,9 @@
 package com.asd.andreyuk.lab0;
 
+import com.asd.andreyuk.Utils;
+
+import static com.asd.andreyuk.lab0.LabSpecificUtils.fibonacci;
+
 /**
  * This is a solution of task 2 from lab 0
  */
@@ -22,7 +26,7 @@ public class Task2 {
         if (n <= 0) {
             res = 0;
         } else {
-            res = util.fibonacci(n);
+            res = fibonacci(n);
         }
         util.writeIntToFile(taskName, res);
 
