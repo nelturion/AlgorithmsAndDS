@@ -1,5 +1,6 @@
 package com.asd.andreyuk.lab0;
 
+import java.io.InputStream;
 import java.util.Scanner;
 
 /**
@@ -45,8 +46,9 @@ public class Task1 {
      */
     public static void subtask3() {
         Utils utils = new Utils();
-        int[] values = utils.readIntArrayFromFile(taskName);
+        int[] values = customRead();
         int a, b, res;
+        assert values != null;
         a = values[0];
         b = values[1];
         res = a + b;
@@ -59,13 +61,31 @@ public class Task1 {
      */
     public static void subtask4() {
         Utils utils = new Utils();
-        int[] values = utils.readIntArrayFromFile(taskName);
+        int[] values = customRead();
         int a, b, res;
+        assert values != null;
         a = values[0];
         b = values[1];
         res = a + b * b;
 
         utils.writeIntToFile(taskName, res);
+    }
+
+    private static int[] customRead() {
+        ClassLoader classLoader = Task1.class.getClassLoader();
+        InputStream inputStream = classLoader.getResourceAsStream("txt/" + taskName + "/input.txt");
+        if (inputStream != null) {
+            Scanner scanner = new Scanner(inputStream);
+            int n = 2;
+            int[] array = new int[n];
+            for (int i = 0; i < n; i++) {
+                array[i] = scanner.nextInt();
+            }
+            return array;
+        } else {
+            System.out.println("File not found");
+            return null;
+        }
     }
 
     /**
