@@ -2,6 +2,7 @@ package com.asd.andreyuk.lab0;
 
 import com.asd.andreyuk.Utils;
 
+import java.io.InputStream;
 import java.util.Scanner;
 
 /**
