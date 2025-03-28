@@ -3,6 +3,7 @@ package com.asd.andreyuk.lab1;
 public class RunAllTasks {
     public static void main(String[] args) {
         Utils utils = new Utils();
+        System.out.println("--- Starting lab1 ---\n");
         utils.startMeasuring();
 
         Task1.main(args);
@@ -11,8 +12,8 @@ public class RunAllTasks {
         Task5.main(args);
         Task6.main(args);
 
-        System.out.println("\nOverall Lab1 statistics:");
-
+        System.out.println("\nAll tasks completed. Lab1 statistics:");
         utils.stopMeasuring();
+        System.out.println();
     }
 }
