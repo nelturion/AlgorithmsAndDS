@@ -11,7 +11,7 @@ public class Task4 {
         Utils utils = new Utils();
         utils.startMeasuring();
 
-        int[] line = customRead("lab1/task4");
+        int[] line = customRead();
 
         // Вытаскиваем последний элемент из полученного массива. Его мы будем искать
         assert line != null;
@@ -57,12 +57,11 @@ public class Task4 {
      * необходима другая функция. Последний элемент возвращаемого массива - значение из второй строчки считываемого
      * файла, которое по заданию надо найти в массиве
      *
-     * @param taskname название задачи
      * @return массив, последний элемент которого - искомое значение
      */
-    private static int[] customRead(String taskname) {
+    private static int[] customRead() {
         ClassLoader classLoader = Task4.class.getClassLoader();
-        InputStream inputStream = classLoader.getResourceAsStream("txt/" + taskname + "/input.txt");
+        InputStream inputStream = classLoader.getResourceAsStream("txt/" + "lab1/task4" + "/input.txt");
 
         if (inputStream != null) {
             Scanner scanner = new Scanner(inputStream);
