@@ -1,10 +1,15 @@
 package com.asd.andreyuk.lab0;
 
+import com.asd.andreyuk.Utils;
+
+import static com.asd.andreyuk.lab0.LabSpecificUtils.fibonacci;
+
 /**
  * This is a solution of task 3 from lab 0
  */
 public class Task3 {
     private static final String taskName = "lab0/task3";
+
     /**
      * Reads a number from a file and puts the last digit of
      * the Fibonacci sequence number (it is very large, therefore it does not need to calculate the entire number)
@@ -16,11 +21,11 @@ public class Task3 {
         utils.startMeasuring();
         int n = utils.readIntFromFile(taskName);
 
-        int prev = utils.fibonacci(1) % 10;
-        int curr = utils.fibonacci(2) % 10;
+        int prev = fibonacci(1) % 10;
+        int curr = fibonacci(2) % 10;
 
         //keep going in cycle until n
-        for (int i = 1; i < n-1; i++) {
+        for (int i = 1; i < n - 1; i++) {
             int t = curr;
             curr = (prev + curr) % 10;
             prev = t;

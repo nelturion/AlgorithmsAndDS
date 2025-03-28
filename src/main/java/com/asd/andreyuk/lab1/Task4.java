@@ -2,9 +2,10 @@ package com.asd.andreyuk.lab1;
 
 import com.asd.andreyuk.Utils;
 
+import com.asd.andreyuk.Utils;
+
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Task4 {
     public static void main(String[] args) {
@@ -33,8 +34,9 @@ public class Task4 {
 
     /**
      * Линейный поиск по элементам массива
+     *
      * @param array массив в котором ищем
-     * @param n элемент, который ищем
+     * @param n     элемент, который ищем
      * @return массив из индексов элементов, которые соответствуют условиям поиска. Если ничего не найдено функция
      * возвращает -1
      */

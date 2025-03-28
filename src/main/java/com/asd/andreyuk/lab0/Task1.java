@@ -1,6 +1,7 @@
 package com.asd.andreyuk.lab0;
 
-import java.io.InputStream;
+import com.asd.andreyuk.Utils;
+
 import java.util.Scanner;
 
 /**
@@ -90,6 +91,8 @@ public class Task1 {
 
     /**
      * Run to start all subtasks
+     *
+     *
      * @param args not used in this method
      */
     public static void main(String[] args) {
