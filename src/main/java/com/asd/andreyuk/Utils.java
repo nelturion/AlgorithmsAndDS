@@ -143,7 +143,7 @@ public class Utils {
         long duration = (endTime - startTime);
         long memoryUsed = endMemory - startMemory;
 
-        System.out.println("Time taken: " + duration / Math.pow(10, 9) + " seconds");
+        System.out.println("Time taken: " + duration / Math.pow(10, 6) + " ms");
         System.out.println("Memory used: " + (float) memoryUsed / (1024 * 1024) + " megabytes");
     }
 
@@ -158,37 +158,127 @@ public class Utils {
     }
 
     /**
-     * Специальная функция для задания 4. Так как входные данные организованы в отличном от стандартного порядке, нам
-     * необходима другая функция. Последний элемент возвращаемого массива - значение из второй строчки считываемого
-     * файла, которое по заданию надо найти в массиве
+     * Меняет местами две переменные. Использование:
+     * <blockquote>
+     * <pre>
+     * b = swap(a, a = b);
+     * </pre>
+     * </blockquote>
+     * <p>
+     * Операция присвоения в JVM происходит интересным образом. У нас сначала происходит операция присвоения, а потом
+     * операция передачи аргумента из функции.
+     * <p>
+     * В основной программе это можно провести следующим образом:
+     * <blockquote>
+     * <pre>
+     * a = a + b - (b = a);
+     * </pre>
+     * </blockquote>
+     * В данном случае код отработает в таком порядке:
+     * <ol>
+     * <li>присвоение b = a;</li>
+     * <li>сложение/вычитание;</li>
+     * <li>присвоение a = результат сложения</li>
+     * </ol>
+     * Однако, в целях выполнения задачи "использовать метод swap",
      *
-     * @param taskname название задачи
-     * @return массив, последний элемент которого - искомое значение
+     * @param a первый элемент перестановки
+     * @param b второй элемент перестановки
+     * @return {@code a}
      */
-    public int[] readIntArrayFromFileT4(String taskname) {
-        ClassLoader classLoader = getClass().getClassLoader();
-        InputStream inputStream = classLoader.getResourceAsStream("txt/" + taskname + "/input.txt");
+    public static int swap(int a, int b) {
+        return a;
+    }
 
-        if (inputStream != null) {
-            Scanner scanner = new Scanner(inputStream);
-            ArrayList<Integer> array = new ArrayList<>();
-            String[] firstLine = scanner.nextLine().split(" ");
-            for (String element : firstLine) {
-                array.add(Integer.parseInt(element));
-            }
+    /**
+     * Swap by index in array
+     * @param array
+     * @param a
+     * @param b
+     */
+    public static void swap(int[] array, int a, int b) {
+        int temp = array[a];
+        array[a] = array[b];
+        array[b] = temp;
+    }
 
-            array.add(scanner.nextInt());   // что мы ищем?
-
-            // приводим к нормальному виду, в конце этого массива будет элемент, который мы ищем
-            int[] arrayOfInt = new int[array.size()];
-            for (int i = 0; i < array.size(); i++) {
-                arrayOfInt[i] = array.get(i);
-            }
-            return arrayOfInt;
-        } else {
-            System.out.println("File not found");
-            return null;
+    public static void generateRandomArray(String taskname, int n) {
+        int[] arrayOfInt = new int[n];
+        for (int i = 0; i < n; i++) {
+            arrayOfInt[i] = (int) (Math.random() * 100);
         }
-        // возможный способ изменить подход к этой функции - возвращать объекты и использовать их тип
+        String dirPath = "src/main/resources/txt/" + taskname;
+        File directory = new File(dirPath);
+        if (!directory.exists()) {
+            if (directory.mkdirs()) {
+                System.out.println("Directory created successfully.");
+            } else {
+                System.err.println("Failed to create directory.");
+                return;
+            }
+        }
+
+        try (FileWriter writer = new FileWriter(dirPath + "/input.txt")) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for (int i = 0; i < arrayOfInt.length; i++) {
+                stringBuilder.append(arrayOfInt[i]);
+                if (i < arrayOfInt.length - 1) {
+                    stringBuilder.append(" ");
+                }
+            }
+            writer.write(Integer.toString(n) + "\n");
+            writer.write(stringBuilder.toString());
+            System.out.println("File written successfully. Check " + dirPath + "/input.txt");
+        } catch (IOException e) {
+            System.out.println("An error occurred while writing to the file: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Записывает в файл строку, если того требует задание
+     * @param taskname название задачи в формате "labN/taskN"
+     * @param string строка, которую надо записать
+     */
+    public void writeStringToFile(String taskname, String string) {
+        String dirPath = "classes/txt/" + taskname;
+        File directory = new File(dirPath);
+        if (!directory.exists()) {
+            if (directory.mkdirs()) {
+                System.out.println("Directory created successfully.");
+            } else {
+                System.err.println("Failed to create directory.");
+                return;
+            }
+        }
+
+        try (FileWriter writer = new FileWriter(dirPath + "/output.txt")) {
+            writer.write(string);
+            System.out.println("File written successfully. Check " + dirPath + "/output.txt");
+        } catch (IOException e) {
+            System.out.println("An error occurred while writing to the file: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Проверяет, отсортирован ли массив
+     * @param array массив, сортировку которого необходимо проверить
+     * @return true, если отсортирован, false в противном случае
+     */
+    public static boolean isSorted(int[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i] > array[i + 1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean isAntiSorted(int[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i] < array[i + 1]) {
+                return false;
+            }
+        }
+        return true;
     }
 }
