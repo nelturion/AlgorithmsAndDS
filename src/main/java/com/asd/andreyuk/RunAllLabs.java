@@ -7,6 +7,7 @@ public class RunAllLabs {
         com.asd.andreyuk.lab1.RunAllTasks.main(args);
         com.asd.andreyuk.lab2.RunAllTasks.main(args);
         com.asd.andreyuk.lab3.RunAllTasks.main(args);
+        com.asd.andreyuk.lab4.RunAllTasks.main(args);
 
     }
 }
