@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -192,6 +191,7 @@ public class Utils {
 
     /**
      * Swap by index in array
+     *
      * @param array
      * @param a
      * @param b
@@ -236,8 +236,9 @@ public class Utils {
 
     /**
      * Записывает в файл строку, если того требует задание
+     *
      * @param taskname название задачи в формате "labN/taskN"
-     * @param string строка, которую надо записать
+     * @param string   строка, которую надо записать
      */
     public void writeStringToFile(String taskname, String string) {
         String dirPath = "classes/txt/" + taskname;
@@ -261,6 +262,7 @@ public class Utils {
 
     /**
      * Проверяет, отсортирован ли массив
+     *
      * @param array массив, сортировку которого необходимо проверить
      * @return true, если отсортирован, false в противном случае
      */
@@ -280,5 +282,36 @@ public class Utils {
             }
         }
         return true;
+    }
+
+    public String readStringFromFile(String taskname) {
+        ClassLoader classLoader = getClass().getClassLoader();
+        InputStream inputStream = classLoader.getResourceAsStream("txt/" + taskname + "/input.txt");
+
+        if (inputStream != null) {
+            Scanner scanner = new Scanner(inputStream);
+            return scanner.nextLine();
+        } else {
+            System.out.println("File not found.");
+            return null;
+        }
+    }
+
+    public String[] readStringArrayFromFile(String taskname) {
+        ClassLoader classLoader = getClass().getClassLoader();
+        InputStream inputStream = classLoader.getResourceAsStream("txt/" + taskname + "/input.txt");
+        if (inputStream != null) {
+            Scanner scanner = new Scanner(inputStream);
+            // это такой социальный контракт, что в первой строчке всегда идет количество элементов в массиве
+            int n = Integer.parseInt(scanner.nextLine());
+            String[] strings = new String[n];
+            for (int i = 0; i < n; i++) {
+                strings[i] = scanner.nextLine();
+            }
+            return strings;
+        } else {
+            System.out.println("File not found.");
+            return null;
+        }
     }
 }
