@@ -23,16 +23,12 @@
 - Ограничение по памяти. 256 мб.
 
 ## Запуск проекта
-1. Клонируйте репозиторий:
+1. Перейдите в папку со скомпилированным проектом:
    ```bash
-   git clone https://github.com/nelturion/AlgorithmsAndDS.git
+    cd ./target
    ```
-2. Перейдите в папку со скомпилированным проектом:
+2. Запустите программу:
    ```bash
-   cd ./target
-   ```
-3. Запустите программу:
-   ```bash
-   java -cp .\classes com.asd.andreyuk.lab0.Task3
+    java -cp .\Algorithms-Andreyuk-0.1.jar com.asd.andreyuk.lab0.Task3
    ```
    

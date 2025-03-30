@@ -10,7 +10,7 @@
 
 ## Описание
 Целью данной работы является проверка навыков базового
-программирования и написания эффективaaного алгоритма
+программирования и написания эффективного алгоритма
 поиска чисел Фибоначи.
 
 ## Отчет
@@ -37,13 +37,14 @@
 ```
 
 4. Запуск отдельной задачи 
-
-```bash
-    java -cp .\asd-1.0-SNAPSHOT.jar com.asd.andreyuk.lab0.Task1
-```
+    
+    ```bash
+        java -cp .\Algorithms-Andreyuk-0.1.jar com.asd.andreyuk.lab0.Task1
+    ```
 
 5. Запуск всех задач
+    
+    ```bash
+        java -cp .\Algorithms-Andreyuk-0.1.jar com.asd.andreyuk.lab0.RunAllTasks
+    ```
 
-```bash
-  java -cp .\asd-1.0-SNAPSHOT.jar com.asd.andreyuk.lab0.RunAllTasks
-```

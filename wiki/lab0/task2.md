@@ -20,16 +20,12 @@
 
 
 ## Запуск проекта
-1. Клонируйте репозиторий:
-   ```bash
-   git clone https://github.com/nelturion/AlgorithmsAndDS.git
-   ```
-2. Перейдите в папку со скомпилированным проектом:
+1. Перейдите в папку со скомпилированным проектом:
    ```bash
    cd ./target
    ```
-3. Запустите программу:
+2. Запустите программу:
    ```bash
-   java -cp .\classes com.asd.andreyuk.lab0.Task2
+      java -cp .\Algorithms-Andreyuk-0.1.jar com.asd.andreyuk.lab0.Task2
    ```
    
